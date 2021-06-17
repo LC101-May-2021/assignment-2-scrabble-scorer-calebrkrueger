@@ -120,7 +120,7 @@ function transform(object) {
   let newScoreObj = {};
   for (item in object) {
     for(i=0; i<object[item].length; i++) {
-      newScoreObj[object[item][i].toLowerCase()] = item;
+      newScoreObj[object[item][i].toLowerCase()] = Number(item);
     }
   }
   return newScoreObj;
