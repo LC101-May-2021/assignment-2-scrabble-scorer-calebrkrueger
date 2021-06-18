@@ -105,12 +105,18 @@ let scrabbleObject = {
 const scoringAlgorithms = [simpleObject, vowelObject, scrabbleObject];
 
 function scorerPrompt(word) {
-console.log(`Which scoring algorithm would you like to use?
+  console.log(`Which scoring algorithm would you like to use?
 
 0 - ${scoringAlgorithms[0].name}: ${scoringAlgorithms[0].description}
 1 - ${scoringAlgorithms[1].name}: ${scoringAlgorithms[1].description}
 2 - ${scoringAlgorithms[2].name}: ${scoringAlgorithms[2].description}`);
+
 let algorithmSelection = input.question("Enter 0, 1, or 2:");
+algorithmSelection = Number(algorithmSelection);
+while(algorithmSelection !== 0 && algorithmSelection !== 1 && algorithmSelection !== 2){
+  algorithmSelection = input.question("Invalid Input, Please select 0, 1, or 2:");
+  algorithmSelection = Number(algorithmSelection);
+}
 console.log(`Score for '${word2Score}': ${scoringAlgorithms[algorithmSelection].scoringFunction(word2Score)}
 `);
 
